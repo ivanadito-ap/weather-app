@@ -1,0 +1,74 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.search-container {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.weather-container, .forecast-container, .history-container {
+  margin: 30px 0;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+.weather-details {
+  margin-top: 15px;
+}
+
+.forecast-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.forecast-item {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.history-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history-container li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.loading {
+  color: #666;
+  font-style: italic;
+}

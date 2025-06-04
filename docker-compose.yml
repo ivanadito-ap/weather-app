@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  # Frontend React Application
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend-api
+    networks:
+      - weather-network
+
+  # Backend FastAPI Service
+  backend-api:
+    build: ./backend-api
+    container_name: backend-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://weather_user:weather_pass@database:5432/weather_db
+      - REDIS_URL=redis://cache:6379
+      - WEATHER_API_KEY=dd803dfa8108accd0b90c1dab1e370c2
+    depends_on:
+      - database
+      - cache
+      - weather-fetcher
+    networks:
+      - weather-network
+
+  # PostgreSQL Database
+  database:
+    image: postgres:13-alpine
+    container_name: database
+    environment:
+      - POSTGRES_USER=weather_user
+      - POSTGRES_PASSWORD=weather_pass
+      - POSTGRES_DB=weather_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - weather-network
+
+  # Redis Cache
+  cache:
+    image: redis:6-alpine
+    container_name: cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - weather-network
+
+  # Weather Fetcher Microservice
+  weather-fetcher:
+    build: ./weather-fetcher
+    container_name: weather-fetcher
+    environment:
+      - WEATHER_API_KEY=dd803dfa8108accd0b90c1dab1e370c2
+    ports:
+      - "5000:5000"
+    networks:
+      - weather-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend-api
+    networks:
+      - weather-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  weather-network:
+    driver: bridge
