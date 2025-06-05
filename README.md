@@ -85,7 +85,7 @@ The application is composed of six Docker containers that work together:
 
 2.  **Run the application using Docker Compose:**
     ```bash
-    docker-compose up -d
+    docker-compose up --build
     ```
     This command will build the images if they don't exist and start all the services in detached mode.
 
