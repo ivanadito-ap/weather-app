@@ -1,16 +1,16 @@
-# Weather Forecaster App
+# 🌤️ Weather Forecaster App
 
-## Description
+## 📝 Description
 Cloud Nine Weather Forecaster is a web application developed as a project for a Cloud Computing course. It allows users to search for and view the current weather and a 5-day forecast for a specified city. The application is built using a microservices architecture, containerized with Docker, and orchestrated with Docker Compose.
 
 ## Features
-* **Current Weather Data**: Get up-to-date weather information for any city.
-* **5-Day Forecast**: View a 5-day weather forecast.
-* **Caching**: Implements Redis caching for faster responses on repeated city searches, reducing external API calls.
-* **Search History**: Logs user search activity (city and timestamp) to a PostgreSQL database.
-* **Responsive UI**: User-friendly interface built with React.
+* 🌡️ **Current Weather Data**: Get up-to-date weather information for any city.
+* 📅 **5-Day Forecast**: View a 5-day weather forecast.
+* ⚡ **Caching**: Implements Redis caching for faster responses on repeated city searches, reducing external API calls.
+* 🕓 **Search History**: Logs user search activity (city and timestamp) to a PostgreSQL database.
+* 💻 **Responsive UI**: User-friendly interface built with React.
 
-## Tech Stack & Architecture
+## 🛠️ Tech Stack & Architecture
 
 ### Technologies Used:
 * **Frontend**: React.js
@@ -21,16 +21,16 @@ Cloud Nine Weather Forecaster is a web application developed as a project for a 
 * **Reverse Proxy**: Nginx
 * **Containerization**: Docker & Docker Compose
 
-### Architecture Overview:
+### 🧱 Architecture Overview:
 The application is composed of six Docker containers that work together:
 
 1.  **`frontend` (React.js)**:
-    * Serves the user interface.
+    * 🎨 Serves the user interface.
     * Users input a city name, and it communicates with the `backend-api` to fetch and display weather data.
     * Accessible via Nginx.
 
 2.  **`backend-api` (FastAPI, Python)**:
-    * The main backend service that handles requests from the `frontend`.
+    * 🧠 The main backend service that handles requests from the `frontend`.
     * Manages business logic:
         * Checks Redis cache for existing weather data.
         * If data is not cached or stale, it calls the `weather-fetcher` service.
@@ -39,23 +39,23 @@ The application is composed of six Docker containers that work together:
         * Returns data to the `frontend`.
 
 3.  **`weather-fetcher` (Flask, Python)**:
-    * An internal microservice dedicated to fetching weather data.
+    * ☁️ An internal microservice dedicated to fetching weather data.
     * Called by the `backend-api`.
     * Retrieves current weather and forecast data from an external provider (e.g., OpenWeatherMap).
 
 4.  **`database` (PostgreSQL)**:
-    * Stores user search history (city searched and timestamp).
+    * 🗃️ Stores user search history (city searched and timestamp).
 
 5.  **`cache` (Redis)**:
-    * Caches weather data for cities that have been searched.
+    * 🚀 Caches weather data for cities that have been searched.
     * This speeds up responses for subsequent requests for the same city and reduces the load on the `weather-fetcher` service and the external API.
 
 6.  **`nginx` (Nginx)**:
-    * Acts as a reverse proxy.
+    * 🔀 Acts as a reverse proxy.
     * Manages incoming HTTP requests and routes them to the appropriate service (primarily the `frontend` and `backend-api`).
     * Exposes the application on port 80.
 
-## How It Works
+## 🔁 How It Works
 1.  The user navigates to the web application, accessing the React.js `frontend` through `Nginx`.
 2.  The user types a city name into the search bar and submits.
 3.  The `frontend` sends this city name to the `backend-api` (FastAPI service).
@@ -70,16 +70,16 @@ The application is composed of six Docker containers that work together:
 10. The `backend-api` sends the weather data back to the React.js `frontend`.
 11. The `frontend` displays the current weather and forecast information to the user.
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### ✅ Prerequisites
 * Docker
 * Docker Compose
 
-### Installation & Running
+### 📦 Installation & Running
 1.  **Clone the repository:**
     ```bash
-    git https://github.com/ivanadito-ap/weather-app.git
+    git clone https://github.com/ivanadito-ap/weather-app.git
     cd weather-app
     ```
 
@@ -96,7 +96,7 @@ The application is composed of six Docker containers that work together:
 
     * The frontend will be available, and it will make API calls to `http://localhost/api/...` which Nginx routes to the `backend-api` service.
 
-## API Endpoints
+## 🔧 API Endpoints
 
 ### Backend API (FastAPI - `backend-api` service)
 These are the primary endpoints used by the frontend:
@@ -115,6 +115,7 @@ This is an internal service endpoint called by the `backend-api`:
     * Fetches weather data from the external OpenWeatherMap API.
     * *Note: This endpoint is intended for internal use by the `backend-api` service.*
 
+## 📁 Project Structure
 ```
 .
 ├── backend-api/          # FastAPI application (main backend logic)
