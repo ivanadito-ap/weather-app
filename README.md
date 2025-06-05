@@ -79,8 +79,8 @@ The application is composed of six Docker containers that work together:
 ### Installation & Running
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
-    cd <your-repository-directory>
+    git https://github.com/ivanadito-ap/weather-app.git
+    cd weather-app
     ```
 
 2.  **Run the application using Docker Compose:**
@@ -115,7 +115,7 @@ This is an internal service endpoint called by the `backend-api`:
     * Fetches weather data from the external OpenWeatherMap API.
     * *Note: This endpoint is intended for internal use by the `backend-api` service.*
 
-## Project Structure
+```
 .
 ├── backend-api/          # FastAPI application (main backend logic)
 │   ├── app/
@@ -139,6 +139,7 @@ This is an internal service endpoint called by the `backend-api`:
 │   └── nginx.conf
 ├── docker-compose.yml    # Docker Compose configuration for all services
 └── README.md             # This file
+```
 
 ## Team/Contributors
 * Ivan Adito Arba Putra
