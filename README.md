@@ -142,12 +142,12 @@ This is an internal service endpoint called by the `backend-api`:
 └── README.md             # This file
 ```
 
-## Team/Contributors
+## 👥 Team/Contributors
 * Ivan Adito Arba Putra
 * I Putu Herjuna Manasye Suarthana
 * Mohammad Azka Khairur Rahman
 
-## Course Information
+## 🎓 Course Information
 * Cloud Computing Course Project
 * Universitas Gadjah Mada   
 * Muhammad Husni Santriaji S.Si., M.T., M.S., Ph.D.
