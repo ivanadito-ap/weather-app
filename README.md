@@ -1,7 +1,7 @@
 # 🌤️ Weather Forecaster App
 
 ## 📝 Description
-Cloud Nine Weather Forecaster is a web application developed as a project for a Cloud Computing course. It allows users to search for and view the current weather and a 5-day forecast for a specified city. The application is built using a microservices architecture, containerized with Docker, and orchestrated with Docker Compose.
+Cloud Three Weather Forecaster is a web application developed as a project for the Cloud Computing course. It allows users to search for and view the current weather and a 5-day forecast for a specified city. The application is built using a microservices architecture, containerized with Docker, and orchestrated with Docker Compose.
 
 ## Features
 * 🌡️ **Current Weather Data**: Get up-to-date weather information for any city.
