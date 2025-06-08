@@ -143,9 +143,9 @@ This is an internal service endpoint called by the `backend-api`:
 ```
 
 ## 👥 Team/Contributors
-* Ivan Adito Arba Putra
-* I Putu Herjuna Manasye Suarthana
-* Mohammad Azka Khairur Rahman
+* [Ivan Adito Arba Putra](https://github.com/ivanadito-ap)
+* [I Putu Herjuna Manasye Suarthana](https://github.com/HermanCS-07)
+* [Mohammad Azka Khairur Rahman](https://github.com/Azukakomai)
 
 ## 🎓 Course Information
 * Cloud Computing Course Project
